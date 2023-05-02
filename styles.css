@@ -1,0 +1,25 @@
+body {
+    background-color: rgba(0, 0, 0, 0);
+}
+  h1 {
+    text-align: left;
+    color: rgb(193, 37, 207);
+}
+  p {
+    color: coral;
+}
+.pagination {
+display: inline-block;
+}
+i {
+  color: greenyellow;
+}
+b {
+  color: crimson;
+}
+em {
+  color: rgb(111, 111, 247);
+}
+  h2 { 
+    color: rgb(120, 177, 160);
+  }

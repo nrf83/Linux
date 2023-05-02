@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html>
+<head>
+<h1><a href="Linux-info2.html">2</a></h1>
+<h1><a href="Linux-info3.html">3</a></h1>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+
+<h1 style="color: blue;">Linux</h1>
+<p>
+  <pre>
+    <h3 style="color: rgb(12,178,18);">Chapter 1-Learning Objectives</h3>
+
+    
+    Discuss the role of the Linux Foundation.
+    Appreciate the learning opportunities provided by the Linux Foundation's training program.
+    Describe the software environment required for this course.
+    Describe the three major Linux distribution families.
+
+  </pre>
+</p>
+<pre>
+Focus on Three Major Linux Distribution Families-<a href="https://lwn.net/Distributions/" target="_blank">The LWN.net Linux Distribution List</a>
+Linux kernel <img src="images/chapter01_The_Linux_Kernel_Distribution_Families_and_Individual_Distributions.png" alt="Linux Kernel">
+
+RHEL <img src="images/chapter01_The_Red_Hat_Family.png" alt="Red Hat">
+
+
+Some of the key facts about the Red Hat distribution family are:
+
+            Fedora serves as an upstream testing platform for RHEL.
+            CentOS is a close clone of RHEL, while Oracle Linux is mostly a copy with some changes (in fact, CentOS has been part of Red Hat since 2014).
+            A heavily patched version 3.10 kernel is used in RHEL/CentOS 7, while version 4.18 is used in RHEL/CentOS 8.
+            It supports hardware platforms such as Intel x86, Arm, Itanium, PowerPC, and IBM System z.
+            It uses the yum and dnf RPM-based yum package managers (covered in detail later) to install, update, and remove packages in the system.
+            RHEL is widely used by enterprises which host their own systems.
+
+
+
+The relationship between SUSE  (SUSE Linux Enterprise Server, or SLES) and openSUSE is similar to the one described between RHEL, CentOS, and Fedora.
+
+SUSE <img src="images/chapter01_screen19.jpg" alt="SUSE">
+
+
+Some of the key facts about the SUSE family are listed below:
+
+            SUSE Linux Enterprise Server (SLES) is upstream for openSUSE.
+            Kernel version 4.12 is used in openSUSE Leap 15.
+            It uses the RPM-based zypper package manager (we cover it in detail later) to install, update, and remove packages in the system.
+            It includes the YaST (Yet Another Setup Tool) application for system administration purposes.
+            SLES is widely used in retail and many other sectors.
+
+
+
+Debian family
+
+
+The Debian distribution is upstream for several other distributions, including Ubuntu. In turn, Ubuntu is upstream for Linux Mint and a number of other distributions. It is commonly used on both servers and desktop computers. Debian is a pure open source community project (not owned by any corporation) and has a strong focus on stability.
+
+Debian provides by far the largest and most complete software repository to its users of any Linux distribution.
+
+Debian<img src="images/chapter01_screen20.jpg" alt="Debian">
+
+
+The Debian family is upstream for Ubuntu, and Ubuntu is upstream for Linux Mint and others.
+Kernel version 5.8 is used in Ubuntu 20.04 LTS.
+It uses the DPKG-based APT package manager (using apt, apt-get, apt-cache, etc., which we cover in detail later) to install, update, and remove packages in the system.
+Ubuntu has been widely used for cloud deployments.
+While Ubuntu is built on top of Debian and is GNOME-based under the hood, it differs visually from the interface on standard Debian, as well as other distributions.
+
+</pre>
+</p>
+<iframe src="images/asset-v1 LinuxFoundationX+LFS101x+1T2020+type@asset+block@Preparing_Your_Computer_for_Linux_Training.pdf" height="2000" width="1000" title="LFS101x"></iframe>
+<br>
+
+Linux Community-<a href="https://www.linux.com/" target="_blank">linux.com</a>
+<p>
+  <pre><hr>
+    <h1>Linux Terminilogy</h1>
+    <video width="1000" controls>
+      <source src="images/LINLFS102014-V006600_DTH.mp4"> Linux Terminilogy</video>
+  </pre>
+</p>
+<p>
+  <pre>
+    Services Associated with Distributions
+
+The vast variety of Linux distributions are designed to cater to many different audiences and organizations, according to their specific needs and tastes. 
+However, large organizations, such as companies and governmental institutions and other entities, tend to choose the major commercially-supported distributions from Red Hat, SUSE, and Canonical (Ubuntu).
+CentOS and CentOS Stream are popular free (as in no cost) alternatives to Red Hat Enterprise Linux (RHEL) and are often used by organizations that are comfortable operating without paid technical support.
+Ubuntu and Fedora are widely used by developers and are also popular in the educational realm. 
+Scientific Linux is favored by the scientific research community for its compatibility with scientific and mathematical software packages. Both CentOS variants are binary-compatible with RHEL; i.e. in most cases,
+binary software packages will install properly across the distributions.
+Note that CentOS is planned to disappear at the end of 2021 in favor of CentOS Stream. However, there are at least two new RHEL-derived substitutes: Alma Linux and Rocky Linux which are establishing a foothold.
+Many commercial distributors, including Red Hat, Ubuntu, SUSE, and Oracle, provide long term fee-based support for their distributions, as well as hardware and software certification.
+All major distributors provide update services for keeping your system primed with the latest security and bug fixes, and performance enhancements, as well as provide online support resources.
+
+Services Associated with Distributions
+<img src="images/LFS01_ch02_screen_24.jpg" alt="Services Associated with Distributions">
+</pre>
+</p>
+<p><h3 style="color: rgb(12, 178, 18);">Chapter 2: Linux Philosophy and Concepts/Summary</h3></p><hr>
+<pre>
+  Linux borrows heavily from the UNIX operating system, with which its creators were well-versed.
+  Linux accesses many features and services through files and file-like objects.
+  Linux is a fully multi-tasking, multi-user operating system, with built-in networking and service processes known as daemons.
+  Linux is developed by a loose confederation of developers from all over the world, collaborating over the Internet, with Linus Torvalds at the head. 
+  Technical skill and a desire to contribute are the only qualifications for participating.
+  The Linux community is a far reaching ecosystem of developers, vendors, and users that supports and advances the Linux operating system.
+  Some of the common terms used in Linux are: kernel, distribution, boot loader, service, filesystem, X Window system, desktop  environment, and command line.
+  A full Linux distribution consists of the kernel plus a number of other software tools for file-related operations, user management, and software package management.
+</pre>
+<p><h3 style="color: rgb(12, 178, 18);">Chapter 3: Linux Basics and System Startup</h3><hr>
+<h1>The Boot Process</h1>
+<pre>
+The Linux boot process is the procedure for initializing the system. It consists of everything that happens from when the computer power is first switched on until the user interface is fully operational. 
+Having a good understanding of the steps in the boot process may help you with troubleshooting problems, as well as with tailoring the computer's performance to your needs.  
+On the other hand, the boot process can be rather technical, and you can start using Linux without knowing all the details. 
+
+<img src="images/chapter03_flowchart_scr15_1.jpg" alt="flow chart">
+</pre><hr>
+<pre>
+  <h1>BIOS - The First Step</h1>
+
+  Starting an x86-based Linux system involves a number of steps. 
+  When the computer is powered on, the Basic Input/Output System (BIOS) initializes the hardware, including the screen and keyboard, and tests the main memory. 
+  This process is also called POST (Power On Self Test).
+<img src="images/LFS01_ch03_screen16.jpg" alt="boot up">
+The BIOS software is stored on a ROM chip on the motherboard. After this, the remainder of the boot process is controlled by the operating system (OS).
+</pre><hr>
+<p><pre>
+  <h1>Master Boot Record (MBR) and Boot Loader</h1>
+
+  Once the POST is completed, the system control passes from the BIOS to the boot loader. 
+  The boot loader is usually stored on one of the hard disks in the system, either in the boot sector 
+  (for traditional BIOS/MBR systems) or the EFI partition (for more recent (Unified) Extensible Firmware Interface or EFI/UEFI systems). 
+  Up to this stage, the machine does not access any mass storage media. 
+  Thereafter, information on date, time, and the most important peripherals are loaded from the CMOS values 
+  (after a technology used for the battery-powered memory store which allows the system to keep track of the date and time even when it is powered off).
+
+A number of boot loaders exist for Linux; the most common ones are GRUB (for GRand Unified Boot loader), ISOLINUX (for booting from removable media), and DAS U-Boot (for booting on embedded devices/appliances). 
+Most Linux boot loaders can present a user interface for choosing alternative options for booting Linux, and even other operating systems that might be installed. 
+When booting Linux, the boot loader is responsible for loading the kernel image and the initial RAM disk or filesystem (which contains some critical files and device drivers needed to start the system) into memory.
+<img src="images/LFS01_ch03_screen20.jpg" alt="mbr">
+</p> <hr></pre>
+<p>
+<h1>Boot Loader<br></h1>
+  The boot loader has two distinct stages:<br>
+
+For systems using the BIOS/MBR method, the boot loader resides at the first sector of the hard disk, also known as the Master Boot Record (MBR). 
+The size of the MBR is just 512 bytes. In this stage, the boot loader examines the partition table and finds a bootable partition. 
+Once it finds a bootable partition, it then searches for the second stage boot loader, for example GRUB, and loads it into RAM (Random Access Memory). 
+For systems using the EFI/UEFI method, UEFI firmware reads its Boot Manager data to determine which UEFI application is to be launched and from where (i.e. from which disk and partition the EFI partition can be found). 
+The firmware then launches the UEFI application, for example GRUB, as defined in the boot entry in the firmware's boot manager. This procedure is more complicated, but more versatile than the older MBR methods.<br>
+<br>
+<img src="images/LFS01_ch03_screen18.jpg" alt="boot">
+
+  The second stage boot loader resides under /boot. A splash screen is displayed, which allows us to choose which operating system (OS) to boot.
+  After choosing the OS, the boot loader loads the kernel of the selected operating system into RAM and passes control to it. 
+  Kernels are almost always compressed, so its first job is to uncompress itself. After this, it will check and analyze the system hardware and initialize any hardware device drivers built into the kernel.
+</p><hr>
+<p>
+  <h1>Initial RAM disk<br></h1>
+<pre>
+  The initramfs filesystem image contains programs and binary files that perform all actions needed to mount the proper root filesystem, 
+  like providing kernel functionality for the needed filesystem and device drivers for mass storage controllers with a facility called udev (for user device), which is responsible for figuring out which devices are present, 
+  locating the device drivers they need to operate properly, and loading them. After the root filesystem has been found, it is checked for errors and mounted.
+  The mount program instructs the operating system that a filesystem is ready for use, and associates it with a particular point in the overall hierarchy of the filesystem (the mount point). 
+  If this is successful, the initramfs is cleared from RAM and the init program on the root filesystem (<i style="color: orange;">/sbin/init</i>) is executed.
+  init handles the mounting and pivoting over to the final real root filesystem. If special hardware drivers are needed before the mass storage can be accessed, they must be in the initramfs image.
+
+  <img src="images/LFS01_ch03_screen22.jpg" alt="initram"><hr>
+  <p>
+  <h1>Text-Mode Login</h1>
+  <pre>
+  Near the end of the boot process, init starts a number of text-mode login prompts. These enable you to type your username, followed by your password, and to eventually get a command shell. 
+  However, if you are running a system with a graphical login interface, you will not see these at first.
+  Command Line Operations, the terminals which run the command shells can be accessed using the ALT key plus a function key. Most distributions start six text terminals and one graphics terminal starting with F1 or F2. 
+  Within a graphical environment, switching to a text console requires pressing CTRL-ALT + the appropriate function key (with F7 or F1 leading to the GUI).
+
+<img src="images/LFS01_ch03_screen26.jpg" alt="text-mode login">
+
+
+Usually, the default command shell is bash (the GNU Bourne Again Shell), but there are a number of other advanced command shells available. 
+The shell prints a text prompt, indicating it is ready to accept commands; after the user types the command and presses Enter, the command is executed, and another prompt is displayed after the command is done.
+  </pre>
+</p><hr>
+<p>
+  <h1>The Linux Kernel</h1><br>
+  <pre>
+    The boot loader loads both the kernel and an initial RAM–based file system (initramfs) into memory, so it can be used directly by the kernel.
+    When the kernel is loaded in RAM, it immediately initializes and configures the computer’s memory and also configures all the hardware attached to the system. 
+    This includes all processors, I/O subsystems, storage devices, etc. The kernel also loads some necessary user space applications.
+
+    <img src="images/LFS01_ch03_screen21.jpg" alt="kernel">
+  </pre>
+</p><hr>
+<p>
+  <h1><i style="color: orange;">/sbin/init </i> and Services</h1>
+<pre>
+  Once the kernel has set up all its hardware and mounted the root filesystem, the kernel runs <i style="color: orange;">/sbin/init</i>. This then becomes the initial process, which then starts other processes to get the system running. 
+  Most other processes on the system trace their origin ultimately to init; exceptions include the so-called kernel processes. These are started by the kernel directly, and their job is to manage internal operating system details.
+
+Besides starting the system, init is responsible for keeping the system running and for shutting it down cleanly. 
+One of its responsibilities is to act when necessary as a manager for all non-kernel processes; it cleans up after them upon completion, and restarts user login services as needed when users log in and out, and does the same for other background system services.
+
+<img src="images/LFS01_ch03_screen24.jpg">
+
+Traditionally, this process startup was done using conventions that date back to the 1980s and the System V variety of UNIX. This serial process had the system passing through a sequence of runlevels containing collections of scripts that start and stop services. 
+Each runlevel supported a different mode of running the system. Within each runlevel, individual services could be set to run, or to be shut down if running.
+
+However, all major distributions have moved away from this sequential runlevel method of system initialization, although they usually emulate many System V utilities for compatibility purposes. Next, we discuss the new methods, of which systemd has become dominant.
+</pre>
+</p><hr>
+  <h1>Startup Alternatives</h1>
+  <pre>
+  <i>SysVinit</i> viewed things as a serial process, divided into a series of sequential stages. Each stage required completion before the next could proceed. 
+  Thus, startup did not easily take advantage of the <i>parallel processing</i> that could be done on multiple processors or cores.
+
+Furthermore, shutdown and reboot was seen as a relatively rare event; exactly how long it took was not considered important. 
+This is no longer true, especially with mobile devices and embedded Linux systems. 
+Some modern methods, such as the use of containers, can require almost instantaneous startup times. Thus, systems now require methods with faster and enhanced capabilities. 
+Finally, the older methods required rather complicated startup scripts, which were difficult to keep universal across distribution versions, kernel versions, architectures, and types of systems. 
+The two main alternatives developed were:
+
+<i>Upstart</i>
+
+Developed by Ubuntu and first included in 2006
+Adopted in Fedora 9 (in 2008) and in RHEL 6 and its clones
+
+<i>systemd</i>
+
+
+Adopted by Fedora first (in 2011)
+Adopted by RHEL 7 and SUSE 
+Replaced Upstart in Ubuntu 16.04
+
+While the migration to systemd was rather controversial, it has been adopted by all major distributions, and so we will not discuss the older System V method or Upstart, which has become a dead end.
+Regardless of how one feels about the controversies or the technical methods of systemd, almost universal adoption has made learning how to work on Linux systems simpler, as there are fewer differences among distributions. 
+We enumerate systemd features next.
+  </pre>
+</p><hr>
+<p>
+  <h1>systemd features</h1>
+  <pre>
+    Systems with systemd start up faster than those with earlier init methods. This is largely because it replaces a serialized set of steps with aggressive parallelization techniques, which permits multiple services to be initiated simultaneously.
+
+Complicated startup shell scripts are replaced with simpler configuration files, which enumerate what has to be done before a service is started, how to execute service startup, and what conditions the service should indicate have been accomplished when startup is finished. 
+One thing to note is that <i style="color: orange;">/sbin/init</i> now just points to <i style="color: orange;">/lib/systemd/systemd</i>; i.e. systemd takes over the init process.
+
+One systemd command (systemctl) is used for most basic tasks. While we have not yet talked about working at the command line, here is a brief listing of its use:
+
+            Starting, stopping, restarting a service (using httpd, the Apache web server, as an example) on a currently running system:
+            <em>$</em> sudo systemctl start|stop|restart httpd.service
+            Enabling or disabling a system service from starting up at system boot:
+            <em>$</em> sudo systemctl enable|disable httpd.service
+
+In most cases, the .service can be omitted. There are many technical differences with older methods that lie beyond the scope of our discussion.
+  </pre>
+</p><hr>
+<p>
+  <pre>
+    <h1>Linux filesystems</h1>
+    Different types of filesystems supported by Linux:
+
+            Conventional disk filesystems: <b>ext3, ext4, XFS, Btrfs, JFS, NTFS, vfat, exfat, etc.</b>
+            Flash storage filesystems: <b>ubifs, jffs2, yaffs, etc.</b>
+            Database filesystems
+            Special purpose filesystems: <b>procfs, sysfs, tmpfs, squashfs, debugfs, fuse, etc.</b>
+
+This section will describe the standard filesystem layout shared by most Linux distributions.
+  </pre>
+</p><hr>
+<p>
+  <h1>Partitions and Filesystems</h1>
+  <pre>
+    A partition is a physically contiguous section of a disk, or what appears to be so in some advanced setups.
+
+A filesystem is a method of storing/finding files on a hard disk (usually in a partition). 
+
+One can think of a partition as a container in which a filesystem resides, although in some circumstances, a filesystem can span more than one partition if one uses symbolic links, which we will discuss much later.
+
+A comparison between filesystems in Windows and Linux is given in the accompanying table:
+
+                                        Windows           Linux
+partition                               disk1             /dev/sda1
+filesystem type                         NTFS/VFAT         EXT3/EXT4XFS/BTRFS
+mounting parameters                     DriveLetter       MountPoint
+base folder (where OS is stored)        C:\               /
+  </pre>
+</p><hr>
+<p>
+  <pre>
+    <h1>Filesystem Hierarchy Standard</h1>
+
+    Linux systems store their important files according to a standard layout called the Filesystem Hierarchy Standard (FHS), which has long been maintained by the Linux Foundation. 
+    For more information, take a look at the following document: <h4 style="color: aqua;"><a href="https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf" target="_blank">"Filesystem Hierarchy Standard"</a></h4> created by LSB Workgroup. 
+    Having a standard is designed to ensure that users, administrators, and developers can move between distributions without having to re-learn how the system is organized.
+
+Linux uses the ‘/’ character to separate paths (unlike Windows, which uses ‘\’), and does not have drive letters. 
+Multiple drives and/or partitions are mounted as directories in the single filesystem. 
+Removable media such as USB drives and CDs and DVDs will show up as mounted at /run/media/yourusername/disklabel for recent Linux systems, or under /media for older distributions. 
+For example, if your username is student a USB pen drive labeled FEDORA might end up being found at /run/media/student/FEDORA, and a file README.txt on that disc would be at /run/media/student/FEDORA/README.txt.
+
+<img src="images/dirtree.jpg" alt="git tree">
+
+</pre>
+</p><hr>
+<p>
+  <pre>
+    <h1>About the Filesystem Hierarchy Standard</h1>
+    All Linux filesystem names are case-sensitive, so /boot, /Boot, and /BOOT represent three different directories (or folders). 
+    Many distributions distinguish between core utilities needed for proper system operation and other programs, and place the latter in directories under /usr (think user). 
+    To get a sense for how the other programs are organized, find the /usr directory in the diagram from the previous page and compare the subdirectories with those that exist directly under the system root directory (/).
+
+  </pre>
+</p><hr>
+<p>
+  <pre>
+    <h1>Viewing the Filesystem Hierarchy from the Graphical Interface in Ubuntu</h1>
+    <video width="1000" controls>
+      <source src="images/LINLFS102014-V006600_DTH.mp4"> </video>
+   
+  </pre>
+</p><hr>
+<p>
+  <pre>
+    <h1>Choosing a Linux Distribution</h1>
+
+Server>>>RHEL/CentOS,Ubuntu Server,SLES,Debian
+Desktop>>>Ubuntu,Fedora,Linux Mint,Debian
+Embedded>>>Yocto,Open Embedded,Android
+
+  </pre>
+</p><hr>
+<p>
+  <pre>
+<h1>Linux Installation: Planning</h1>
+
+<img src="images/LFS01_ch03_screen_34.jpg">
+Nearly all installers provide a reasonable default layout, with either all space dedicated to normal files on one big partition and a smaller swap partition, or with separate partitions for some space-sensitive areas like /home and /var. 
+You may need to override the defaults and do something different if you have special needs, or if you want to use more than one disk.
+  </pre>
+</p><hr>
+<p>
+  <h1>Linux Installation: Software Choices</h1>
+
+  <img src="images/LFS01_ch03_screen_35.jpg">
+</p><hr>
+<p>
+  <pre>
+    <h1>Linux Installation: Install Source</h1>
+
+    Like other operating systems, Linux distributions are provided on removable media such as USB drives and CDs or DVDs. 
+    Most Linux distributions also support booting a small image and downloading the rest of the system over the network. 
+    These small images are usable on media, or as network boot images, in which case it is possible to perform an install without using any local media.
+
+Many installers can do an installation completely automatically, using a configuration file to specify installation options. 
+This file is called a Kickstart file for Red Hat-based systems, an AutoYAST profile for SUSE-based systems, and a Preseed file for Debian-based systems.
+
+Each distribution provides its own documentation and tools for creating and managing these files.
+  </pre>
+</p><hr>
+<p>
+  <pre>
+    <h1>Linux Installation: The Process</h1>
+
+
+
+The actual installation process is pretty similar for all distributions.
+
+After booting from the installation media, the installer starts and asks questions about how the system should be set up. 
+These questions are skipped if an automatic installation file is provided. Then, the installation is performed.
+
+Finally, the computer reboots into the newly-installed system. On some distributions, additional questions are asked after the system reboots.
+
+Most installers have the option of downloading and installing updates as part of the installation process; this requires Internet access. 
+Otherwise, the system uses its normal update mechanism to retrieve those updates after the installation is done.
+
+NOTE: We will be demonstrating the installation process in each of the three Linux distribution families we cover in this course. 
+You can view a demonstration for the distribution type of your choice.
+  </pre>
+</p><hr>
+<h3 style="color: rgb(12,178,18);">Chapter 4 Graphical Interface</h3>
+<p>
+  <h1>Graphical Desktop</h1>
+
+  You can use either a Command Line Interface (CLI) or a Graphical User Interface (GUI) when using Linux. 
+  To work at the CLI, you have to remember which programs and commands are used to perform tasks, and how to quickly and accurately obtain more information about their use and options. 
+  On the other hand, using the GUI is often quick and easy. It allows you to interact with your system through graphical icons and screens. 
+  For repetitive tasks, the CLI is often more efficient, while the GUI is easier to navigate if you do not remember all the details or do something only rarely.
+
+We will learn how to manage sessions using the GUI forthe three Linux distribution families that we cover the most in this course: Red Hat (CentOS, Fedora), SUSE (openSUSE), and Debian (Ubuntu, Mint). 
+Since we are using the GNOME-based variant of openSUSE rather than the KDE-based one, all are actually quite similar. 
+If you are using KDE (or other Linux desktops such as XFCE), your experience will vary somewhat from what is shown, but not in any intrinsically difficult way, as user interfaces have converged to certain well-known behaviors on modern operating systems. 
+In subsequent sections of this course we will concentrate in great detail on the command line interface, which is pretty much the same on all distributions.
+</p><hr>
+<p>
+  
+  <pre>
+      X Windows System
+
+      Generally, in a Linux desktop system, the X Window System is loaded as one of the final steps in the boot process. It is often just called X.
+
+A service called the Display Manager keeps track of the displays being provided and loads the X server (so-called, because it provides graphical services to applications, sometimes called X clients). 
+The display manager also handles graphical logins and starts the appropriate desktop environment after a user logs in.
+
+X is rather old software; it dates back to the mid 1980s and, as such, has certain deficiencies on modern systems (for example, with security), as it has been stretched rather far from its original purposes. 
+A newer system, known as Wayland, is gradually superseding it and is the default display system for Fedora, RHEL 8, and other recent distributions.  
+For the most part, it looks just like X to the user, although under the hood it is quite different.
+  
+A desktop environment consists of a session manager, which starts and maintains the components of the graphical session, and the window manager, which controls the placement and movement of windows, window title-bars, and controls.
+
+Although these can be mixed, generally a set of utilities, session manager, and window manager are used together as a unit, and together provide a seamless desktop environment.
+
+If the display manager is not started by default in the default runlevel, you can start the graphical desktop different way, after logging on to a text-mode console, by running startx from the command line. 
+Or, you can start the display manager (gdm, lightdm, kdm, xdm, etc.) manually from the command line. This differs from running startx as the display managers will project a sign in screen. We discuss them next.
+
+The default display manager for GNOME is called gdm. Other popular display managers include lightdm (used on Ubuntu before version 18.04 LTS) and kdm (associated with KDE).
+
+<img src="images/LFS01_ch03_screen28.jpg">
+
+A desktop environment consists of a session manager, which starts and maintains the components of the graphical session, and the window manager, which controls the placement and movement of windows, window title-bars, and controls.
+
+Although these can be mixed, generally a set of utilities, session manager, and window manager are used together as a unit, and together provide a seamless desktop environment.
+
+If the display manager is not started by default in the default runlevel, you can start the graphical desktop different way, after logging on to a text-mode console, by running startx from the command line. 
+Or, you can start the display manager (gdm, lightdm, kdm, xdm, etc.) manually from the command line. 
+This differs from running startx as the display managers will project a sign in screen. We discuss them next.
+
+<img src="images/LFS01_ch03_screen29.jpg">
+</pre>
+</p><hr>
+<p>
+  <pre>
+      <h1>GNOME Desktop Enviroment</h1>
+      GNOME is a popular desktop environment with an easy-to-use graphical user interface. It is bundled as the default desktop environment for most Linux distributions, 
+      including Red Hat Enterprise Linux (RHEL), Fedora, CentOS, SUSE Linux Enterprise, Ubuntu and Debian. 
+      GNOME has menu-based navigation and is sometimes an easy transition to accomplish for Windows users. 
+      However, as you will see, the look and feel can be quite different across distributions, even if they are all using GNOME.
+      Another common desktop environment very important in the history of Linux and also widely used is KDE, which has often been used in conjunction with SUSE and openSUSE. 
+      Other alternatives for a desktop environment include Unity (present on older Ubuntu, but still based on GNOME), XFCE and LXDE. 
+      As previously mentioned, most desktop environments follow a similar structure to GNOME, and we will restrict ourselves mostly to it to keep things less complex.
+  
+      Graphical Desktop Background
+      Customizing the Desktop Background
+
+      gnome-tweaks
+Most common settings, both personal and system-wide, are to be found by clicking in the upper right-hand corner, on either a gear or other obvious icon, depending on your Linux distribution.
+
+However, there are many settings which many users would like to modify which are not thereby accessible; the default settings utility is unfortunately rather limited in modern GNOME-based distributions.
+Unfortunately, the quest for simplicity has actually made it difficult to adapt your system to your tastes and needs.  
+
+Fortunately, there is a standard utility, gnome-tweaks, which exposes many more setting options. It also permits you to easily install extensions by external parties. 
+Not all Linux distributions install this tool by default, but it is always available (older distributions used the name gnome-tweak-tool). You may have to run it by hitting Alt-F2 and then typing in the name. 
+You may want to add it to your Favorites list as we shall discuss.
+
+As discussed in the next chapter, some recent distributions have taken most of the functionality out of this tool and placed it in a new one, called gnome-extensions-app.
+
+In the screenshot below, the keyboard mapping is being adjusted so the useless CapsLock key can be used as an additional Ctrl key; 
+this saves users who use Ctrl a lot (such as emacs aficionados) from getting physically damaged by pinkie strain.
+  </pre>
+</p><hr>
+<h3 style="color: rgb(12,178,18);">Chapter 5 System configuration from the Graphical Interface</h3>
+
+<p>
+  <pre>
+    <h1>Getting and Setting Screen Resolution</h1>
+    student:/tmp> <em>$</em> xdpyinfo | grep dim
+    dimensions: 3200x1080 pixels (847x286 millimeters)
+  </pre>
+</p><hr>
+<p>
+<h1>Network Time Protocol</h1>
+</p>
+The Network Time Protocol (NTP) is the most popular and reliable protocol for setting the local time by consulting established Internet servers. 
+Linux distributions always come with a working NTP setup, which refers to specific time servers run or relied on by the distribution. 
+This means that no setup, beyond "on" or "off", is generally required for network time synchronization.
+<p><hr>
+  <h1>Network Configuration</h1>
+  All Linux distributions have network configuration files, but file formats and locations can differ from one distribution to another. 
+  Hand editing of these files can handle quite complicated setups, but is not very dynamic or easy to learn and use. 
+  Network Manager was developed to make things easier and more uniform across distributions. 
+  It can list all available networks (both wired and wireless), allow the choice of a wired, wireless, or mobile broadband network, handle passwords, and set up Virtual Private Networks (VPNs). 
+  Except for unusual situations, it is generally best to let Network Manager establish your connections and keep track of your settings.
+
+<img src="images/LFS01_ch05_screen18.jpg">
+</p><hr>
+<p>
+<h1>Wired and Wireless Connections</h1>
+
+Wired connections usually do not require complicated or manual configuration. 
+The hardware interface and signal presence are automatically detected, 
+and then Network Manager sets the actual network settings via Dynamic Host Configuration Protocol (DHCP).
+
+For static configurations that do not use DHCP, manual setup can also be done easily through Network Manager. 
+You can also change the Ethernet Media Access Control (MAC) address if your hardware supports it. The MAC address is a unique hexadecimal number of your network card.
+Wireless networks are usually not connected by default. You can view the list of available wireless networks and see which one (if any) you are currently connected to by using Network Manager. 
+You can then add, edit, or remove known wireless networks, and also specify which ones you want connected by default when present.
+</p>
+<p><hr>
+  <p>
+    <pre>
+      <h1>Installing and Updating Software</h1>
+
+      Each package in a Linux distribution provides one piece of the system, such as the Linux kernel, the C compiler, 
+      utilities for manipulating text or configuring the network, or for your favorite web browsers and email clients.
+
+      Packages often depend on each other. For example, because your email client can communicate using SSL/TLS, 
+      it will depend on a package which provides the ability to encrypt and decrypt SSL and TLS communication, and will not install unless that package is also installed at the same time.
+
+      All systems have a lower-level utility which handles the details of unpacking a package and putting the pieces in the right places. 
+      Most of the time, you will be working with a higher-level utility which knows how to download packages from the Internet and can manage dependencies and groups for you.
+
+In this section, you will learn how to install and update software in Linux using the Debian packaging system (used by systems such as Ubuntu as well) 
+and RPM packaging systems (which is used by both Red Hat and SUSE family systems). 
+These are the main ones in use although there are others which work well for other distributions which are less used.
+    </pre><hr>
+  </p>
+
+<p>
+  <pre>
+    <h1>Debian Packaging</h1>
+
+
+    <i>dpkg</i> is the underlying package manager for these systems. It can install, remove, and build packages. 
+    Unlike higher-level package management systems, it does not automatically download and install packages and satisfy their dependencies.
+  <img src="images/LFS01_ch05_screen34.jpg">
+
+  For Debian-based systems, the higher-level package management system is the Advanced Package Tool (APT) system of utilities. 
+  Generally, while each distribution within the Debian family uses APT, it creates its own user interface on top of it (for example, apt and apt-get, synaptic, gnome-software, Ubuntu Software Center, etc). 
+  Although apt repositories are generally compatible with each other, the software they contain generally is not. 
+  Therefore, most repositories target a particular distribution (like Ubuntu), and often software distributors ship with multiple repositories to support multiple distributions. 
+  </pre>
+</p>
+<p>
+  <pre>
+    <h1>Red Hat Package Manager (RPM)</h1>
+    Red Hat Package Manager (RPM) is the other package management system popular on Linux distributions. 
+    It was developed by Red Hat, and adopted by a number of other distributions, including SUSE/openSUSE, Mageia, CentOS, Oracle Linux, and others.
+  
+    <img src="images/LFS01_ch05_screen35.jpg">
+    The higher-level package manager differs between distributions. Red Hat family distributions historically use RHEL/CentOS and Fedora uses dnf, while retaining good backwards compatibility with the older yum program. 
+    SUSE family distributions such as openSUSE also use RPM, but use the zypper interface.
+  </pre>
+</p><hr>
+<p>
+  <pre>
+    <h1>openSUSE’s YaST Software Management</h1>
+
+    The Yet another Setup Tool (YaST) software manager is similar to other graphical package managers. It is an RPM-based application. You can add, remove, or update packages using this application very easily. To access the YaST software manager:
+
+            1.Click Activities
+            2.In the Search box, type YaST
+            3.Click the YaST icon
+            4.Click Software Management
+
+    You can also find YaST by clicking on Applications > Other-YaST, which is a strange place to put it.
+
+    <img src="images/LFS01_ch05_screen36.jpg">
+
+    openSUSE’s YaST software management application is similar to the graphical package managers in other distributions. 
+  </pre>
+</p>
+<p>
+  <pre>
+    <h1>Installing and Removing Software Packages</h1>
+
+    On any recent GNOME-based system, you can run the gnome-software utility as we have described. You can either run it from some menu location, or from a command line, or by typing it after hitting ALT-F2.
+
+    On Ubuntu, use either the Ubuntu Software Center or synaptic. On any other Debian-based system, you can use synaptic.
+    
+    On Red Hat 7-based systems, including CentOS 7, click on Applications in the top menu bar, then System Tools > Software.
+    
+    On SUSE-based systems, you can click on the System Settings icon in the upper right corner (the wrench and screwdriver) and then System > YaST.
+    
+    On any of these systems, you can then just type dump in the search box and proceed from there.
+    
+    Note: We really cannot give you precise instructions here; things change too often from version to version and distribution to distribution
+  </pre>
+</p><hr>
+<p>
+  <h3 style="color: rgb(12,178,18);">Cnapter 6: Common Applications</h3>
+</p>
+<p>
+  <pre>
+    <h1>Internet Applications</h1>
+    <img src="images/LFS01_ch17_screen03.jpg">
+  </pre>
+</p><hr>
+<p>
+  <pre>
+  <h1>Web Browsers</h1>
+
+  Firefox
+  Google Chrome
+  Chromium
+  Epiphany (renamed web)
+  Konqueror
+  linx, lynx, w3m
+  Opera
+  </pre>
+</p><hr>
+<p>
+  <pre>
+      <h1>Email Applications </h1>
+
+      Most email clients use the Internet Message Access Protocol (IMAP) or the older Post Office Protocol (POP) to access emails stored on a remote mail server. 
+      Most email applications also display HTML (HyperText Markup Language) formatted emails that display objects, such as pictures and hyperlinks. The features of advanced email applications include the ability of importing address books/contact lists, configuration information, and emails from other email applications.
+
+Linux supports the following types of email applications:
+
+            Graphical email clients, such as Thunderbird, Evolution, and Claws Mail.
+            Text mode email clients, such as Mutt and mail.
+            All web browser-based clients, such as Gmail, Yahoo Mail, and Office 365.
+
+  <img src="images/LFS01_ch17_screen05.jpg">
+  </pre>
+</p>
+<p>
+  <pre>
+    <h1>Other Applications</h1>
+
+    FileZilla 	    Intuitive graphical FTP client that supports FTP, Secure File Transfer Protocol (SFTP), and FTP Secured (FTPS). Used to transfer files to/from (FTP) servers.
+    Pidgin 	        To access GTalk, AIM, ICQ, MSN, IRC and other messaging networks.
+    Ekiga 	        To connect to Voice over Internet Protocol (VoIP) networks.
+    Hexchat 	      To access Internet Relay Chat (IRC) networks.
+  </pre>
+</p><hr>
+<p>
+  <pre>
+    
+      <h1>Office Applications</h1>
+  
+      Text (articles, books, reports, etc.)
+      Spreadsheets
+      Presentations
+      Graphical objects.
+
+Most Linux distributions offer LibreOffice, an open source office suite that started in 2010 and has evolved from OpenOffice. 
+While other office suites are available as we have listed, LibreOffice is the most mature, widely used and intensely developed.
+
+In addition, Linux users have full access to Internet-based office suites such as Google Docs and Microsoft Office 365.
+  </pre>
+</p><hr>
+<p>
+  <pre>
+    <h1>LibreOffice Components</h1>
+    The component applications included in LibreOffice are:
+
+            Writer: Word Processing
+            Calc: Spreadsheets
+            Impress: Presentations
+            Draw: Create and edit graphics and diagrams.
+
+The LibreOffice applications can read and write non-native document formats, such as those used by Microsoft Office. 
+Usually, fidelity is maintained quite well, but complicated documents might have some imperfect conversions.
+  </pre>
+</p><hr>
+<p>
+  <pre>
+  <h1>Development Applications</h1>
+
+  Linux distributions come with a complete set of applications and tools that are needed by those developing or maintaining both user applications and the kernel itself.
+
+These tools are tightly integrated and include:
+
+            Advanced editors customized for programmers' needs, such as vi and emacs.
+            Compilers (such as gcc and clang for programs in C and C++) for every computer language that has ever existed, 
+            including very popular new ones such as Golang and Rust.
+            Debuggers such as gdb and various graphical front ends to it and many other debugging tools (such as Valgrind).
+            Performance measuring and monitoring programs, some with easy to use graphical interfaces, 
+            others more arcane and meant to be used only by serious experienced development engineers.
+            Complete Integrated Development Environments (IDE's) such as Eclipse and Visual Studio Code that put all these tools together.
+
+On other operating systems, these tools have to be obtained and installed separately, often at a high cost, 
+while on Linux they are all available at no cost through standard package installation systems.
+</pre>
+</p><hr>
+<p>
+  <pre>
+    <h1>Graphics Utilities</h1>
+
+  eog 	Eye of Gnome (eog) is an image viewer that provides slide show capability and a few image editing tools, 
+        such as rotate and resize. It can also step through the images in a directory with just a click.
+
+Inkscape 	Inkscape is an image editor with lots of editing features. It works with layers and transformations of the image. 
+          It is sometimes compared to Adobe Illustrator.
+
+convert 	convert is a command line tool (part of the ImageMagick set of applications) that can modify image files in many ways. 
+          The options include file format conversion and numerous image modification options, such as blur, resize, despeckle, etc.
+
+Scribus 	Scribus is used for creating documents used for publishing and providing a What You See Is What You Get (WYSIWYG) environment. 
+          It also provides numerous editing tools.
+
+  </pre>
+</p>
+<p>
+  <pre>
+    <h1>Chapter Summary</h1>
+
+
+    Web browsers supported by Linux can be either graphical or text-based, such as Firefox, Google Chrome, Epiphany, w3m, lynx, and others.
+    Linux supports graphical email clients, such as Thunderbird, Evolution, and Claws Mail, and text mode email clients, such as Mutt and mail.
+    Linux systems provide many other applications for performing Internet-related tasks, such as Filezilla, XChat, Pidgin, and others.
+    Most Linux distributions offer LibreOffice to create and edit different kinds of documents.
+    Linux systems offer entire suites of development applications and tools, including compilers and debuggers.
+    Linux systems offer a number of sound players including Amarok, Audacity, and Rhythmbox.
+    Linux systems offer a number of movie players, including VLC, MPlayer, Xine, and Totem.
+    Linux systems offer a number of movie editors, including Kino, Cinepaint, Blender among others.
+    The GIMP (GNU Image Manipulation Program) utility is a feature-rich image retouching and editing tool available on all Linux distributions.
+    Other graphics utilities that help perform various image-related tasks are eog, Inkscape, convert, and Scribus.
+
+  </pre>
+</p><hr>
